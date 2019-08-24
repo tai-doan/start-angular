@@ -56,11 +56,27 @@ a.nav-link {
     color: #fff;
 }
 
-.form-group {
+.nop .form-group {
     float: left;
     margin: 0 5px;
 }
 
 .both {
     clear: both;
+}
+
+tbody i.fas {
+    margin: 0 5px;
+}
+
+i.fas.fa-info {
+    color: #5cb85c;
+}
+
+i.fas.fa-pen {
+    color: #2889da;
+}
+
+i.fas.fa-trash-alt {
+    color: rgb(197, 23, 23);
 }
