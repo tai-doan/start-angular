@@ -9,7 +9,7 @@
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-2 col-form-label">Filter by</label>
                         <div class="col-sm-3">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Filter...">
                         </div>
                     </div>
                 </form>
@@ -17,81 +17,45 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Hien image</th>
+                            <th>
+                                <button (click)='anhien()' class="btn btn-primary btn-sm">{{text}}</button>
+                            </th>
                             <th>Product</th>
                             <th>Code</th>
                             <th>Available</th>
                             <th>Price</th>
+                            <th>Quantity</th>
                             <th>5 Star rating</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr *ngFor='let product of listproduct'>
                             <td>
-                                <img class="img-fluid" src="assets/images/anh1.png" alt="ảnh 1">
+                                <img *ngIf='ah' class="img-fluid" src="assets/images/{{product.imageUrl}}" alt="{{product.imageUrl}}" width="35px" height="35px">
                             </td>
-                            <td>Left Rake</td>
-                            <td>gdn-0011</td>
-                            <td>March 19, 2016</td>
-                            <td>$19.95</td>
-                            <td><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                    class="fa fa-star"></i><i class="fa fa-star"></i></td>
+                            <td>{{product.productName}}</td>
+                            <td>{{product.productCode}}</td>
+                            <td>{{product.releaseDate}}</td>
+                            <td>${{product.price}}</td>
+                            <td>
+                                <button type="button" (click)='giamsl(product.productId)' class="btn btn-danger btn-sm">-</button> {{product.quantity}}
+                                <button type="button" (click)='tangsl(product.productId)' class="btn btn-success btn-sm">+</button>
+                            </td>
+                            <td>
+                                <div class="star-rating" [style.width.px]='sao(product.productId)'>
+                                    <div class="sao">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i> {{product.starRating}}
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                         <tr>
-                            <td>
-                                <img class="img-fluid" src="assets/images/anh1.png" alt="ảnh 1">
-                            </td>
-                            <td>Left Rake</td>
-                            <td>gdn-0011</td>
-                            <td>March 19, 2016</td>
-                            <td>$19.95</td>
-                            <td><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                    class="fa fa-star"></i><i class="fa fa-star"></i></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img class="img-fluid" src="assets/images/anh1.png" alt="ảnh 1">
-                            </td>
-                            <td>Left Rake</td>
-                            <td>gdn-0011</td>
-                            <td>March 19, 2016</td>
-                            <td>$19.95</td>
-                            <td><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                    class="fa fa-star"></i><i class="fa fa-star"></i></td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <img class="img-fluid" src="assets/images/anh1.png" alt="ảnh 1">
-                            </td>
-                            <td>Left Rake</td>
-                            <td>gdn-0011</td>
-                            <td>March 19, 2016</td>
-                            <td>$19.95</td>
-                            <td><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                    class="fa fa-star"></i><i class="fa fa-star"></i></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img class="img-fluid" src="assets/images/anh1.png" alt="ảnh 1">
-                            </td>
-                            <td>Left Rake</td>
-                            <td>gdn-0011</td>
-                            <td>March 19, 2016</td>
-                            <td>$19.95</td>
-                            <td><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                    class="fa fa-star"></i><i class="fa fa-star"></i></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img class="img-fluid" src="assets/images/anh1.png" alt="ảnh 1">
-                            </td>
-                            <td>Left Rake</td>
-                            <td>gdn-0011</td>
-                            <td>March 19, 2016</td>
-                            <td>$19.95</td>
-                            <td><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                    class="fa fa-star"></i><i class="fa fa-star"></i></td>
+                            <td colspan="6">Total</td>
+                            <td>${{tongtien()|number}}</td>
                         </tr>
                     </tbody>
                 </table>

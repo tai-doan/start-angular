@@ -56,9 +56,18 @@ a.nav-link {
     color: #fff;
 }
 
-.nop .form-group {
-    float: left;
+.col-lg-4.col-md-12.col-sm-12 .form-group {
+    display: inline-block;
     margin: 0 5px;
+}
+
+.col-lg-8.col-md-12.col-sm-12 .form-group {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.r-admin {
+    float: right;
 }
 
 .both {

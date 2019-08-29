@@ -1,0 +1,8 @@
+div.star-rating {
+    visibility: visible;
+    overflow: hidden;
+}
+
+div.sao {
+    display: inline-flex;
+}
