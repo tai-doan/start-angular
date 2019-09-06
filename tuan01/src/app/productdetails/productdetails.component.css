@@ -1,0 +1,25 @@
+div.star-rating {
+    visibility: visible;
+    overflow: hidden;
+}
+
+div.sao {
+    display: inline-flex;
+}
+
+div.row.content-product {
+    margin: 50px 0;
+}
+
+img.img-single-product {
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+}
+
+div.right-content-single-product {
+    border-left: 1px solid #dfdfdf;
+}
+
+.media {
+    margin: 20px 0;
+}

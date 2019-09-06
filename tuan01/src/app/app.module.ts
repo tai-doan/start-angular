@@ -11,12 +11,25 @@ import { AdmintemplateComponent } from './admintemplate/admintemplate.component'
     AppComponent,
     ProductdetailsComponent,
     ProductlistComponent,
-    AdmintemplateComponent
+    AdmintemplateComponent,
+    CartComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([ 
+      { path: '', component: AdmintemplateComponent }, 
+      { path: 'product', component: ProductlistComponent},
+      { path: 'product/:productId', component: ProductdetailsComponent },
+      { path: 'cart', component: CartComponent }, 
+      { path: '**', redirectTo: '', pathMatch: 'full' },
+    ]) 
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+import { RouterModule } from '@angular/router';
+import { CartComponent } from './cart/cart.component';
+

@@ -1,0 +1,56 @@
+<div class="container">
+    <div *ngIf="ktra(); then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-md-12">
+                <h3>Your Cart</h3>
+            </div>
+            <div class="col-lg-12 col-sm-12 col-md-12">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Images</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of items">
+                            <td>
+                                <img class="img-fluid" src="assets/images/{{item.imageUrl}}" alt="{{item.imageUrl}}" width="35px" height="35px">
+                            </td>
+                            <td>
+                                <a [routerLink]="['/product',item.productId]">{{item.productName}}</a>
+                            </td>
+                            <td>${{item.price}}</td>
+                            <td>
+                                <button type="button" (click)='giamsl(item.productId)' class="btn btn-danger btn-sm">-</button>
+                                <span class="quantity" width="18px">{{item.quantity}}</span>
+                                <button type="button" (click)='tangsl(item.productId)' class="btn btn-success btn-sm">+</button>
+                            </td>
+                            <td class="functioncartpage">
+                                <a class="btn btn-warning btn-sm" [routerLink]="['/product',item.productId]">View</a>
+                                <button class="btn btn-danger btn-sm" (click)='DeleteItem(item.productId)'>Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">Total</td>
+                            <td><b>${{tongtien()|number}}</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #elseBlock>
+        <div class="row text-center">
+            <div class="col-lg-12 col-sm-12 col-md-12">
+                <h2>Your cart is empty, please back to the product page</h2>
+                <a [routerLink]="['/product']" class="btn btn-success">Back to product page</a>
+            </div>
+        </div>
+    </ng-template>
+
+</div>

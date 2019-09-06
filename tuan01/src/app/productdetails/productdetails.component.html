@@ -1,64 +1,66 @@
-<div class="row" style="margin: 20px 0;">
-    <div class="col-lg-12 col-md-12 col-sm-12">
-        <div class="card">
-            <div class="card-header">
-                Leaf Rake
-            </div>
-            <div class="card-body">
-                <div class="container-fluid">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="row content-product">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <img src="/assets/images/{{product.imageUrl}}" class="img-single-product">
+                </div>
+                <div class="col-lg-8 col-md-6 col-sm-12">
                     <div class="row">
-
-
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <table class="pull-left">
-                                <tbody>
-                                    <tr>
-                                        <td class="h6"><strong>Name</strong></td>
-                                        <td> </td>
-                                        <td class="h6">Leaf Rake</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="h6"><strong>Code</strong></td>
-                                        <td> </td>
-                                        <td class="h6">GDN-0011</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="h6"><strong>Description</strong></td>
-                                        <td> </td>
-                                        <td class="h6">Left Rake with 48 inch wooden handle</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="h6"><strong>Availability</strong></td>
-                                        <td> </td>
-                                        <td class="h6">March 19, 2016</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="h6"><strong>Price</strong></td>
-                                        <td> </td>
-                                        <td class="h6">$19.95</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="h6"><strong>5 Star Rating</strong></td>
-                                        <td> </td>
-                                        <td class="h6">3.2</td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
+                        <div class="col-lg-8 col-md-8 col-sm-12">
+                            <h1 style="font-size: 23px;">{{product.productName}}</h1>
+                            <div class="star-rating" [style.width.px]='sao(product.productId)'>
+                                <div class="sao" style="color: #ffc000;">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <h5 style="color: #ff5622;">${{product.price}}</h5>
+                            <p>
+                                <b>Description:</b><br/>
+                                <span>{{product.description}}</span>
+                            </p>
+                            <p>
+                                <b>SKU:</b><br/>
+                                <span>{{product.productCode}}</span>
+                            </p>
+                            <a (click)='addToCart(product)' class="btn btn-primary" [routerLink]="['/cart']">Add to cart</a>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 text-center">
-                            <img src="/assets/images/choi.png" height="300px" width="auto">
+                        <div class="col-lg-4 col-md-4 col-sm-12 right-content-single-product">
+                            <div class="media">
+                                <img src="/assets/images/srv_1.png" class="mr-1" alt="" width="40px">
+                                <div class="media-body">
+                                    <h6 class="mt-0">Giao hàng nhanh</h6>
+                                    Giao nhanh 2h
+                                </div>
+                            </div>
+                            <div class="media">
+                                <img src="/assets/images/srv_3.png" class="mr-1" alt="" width="40px">
+                                <div class="media-body">
+                                    <h6 class="mt-0">Sản phẩm chính hãng</h6>
+                                    Chính hãng 100%
+                                </div>
+                            </div>
+                            <div class="media">
+                                <img src="/assets/images/srv_2.png" class="mr-1" alt="" width="40px">
+                                <div class="media-body">
+                                    <h6 class="mt-0">Mua hàng tiết kiệm</h6>
+                                    Rẻ hơn 10 - 20 %
+                                </div>
+                            </div>
+                            <div class="media">
+                                <img src="/assets/images/phone.png" class="mr-1" alt="" width="40px">
+                                <div class="media-body">
+                                    <h6 class="mt-0">Hotline mua hàng</h6>
+                                    0386.822.456
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card-footer text-left">
-                Back
             </div>
         </div>
     </div>
