@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Sinh Viên</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-table"></i> Danh sách sinh viên
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <form class="form-inline">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">LastName</th>
+                                        <th scope="col">FirstName</th>
+                                        <th scope="col">EnrollDate</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor='let std of students'>
+                                        <th>{{std.LastName}}</th>
+                                        <td>{{std.FirstMidName}}</td>
+                                        <td>{{std.EnrollmentDate}}</td>
+                                        <td class="action">
+                                            <a class="fas fa-info-circle" [routerLink]="['/sinhvien',std.ID]"></a>
+                                            <a class="fas fa-trash-alt" href="#" (click)='DeleteStd(std.ID)'></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <p>Showing 1 of 3</p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12"></div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

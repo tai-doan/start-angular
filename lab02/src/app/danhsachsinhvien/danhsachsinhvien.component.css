@@ -1,0 +1,11 @@
+td.action a {
+    margin: 0 5px;
+}
+
+td.action a:hover {
+    text-decoration: none;
+}
+
+td.action a.fas.fa-trash-alt {
+    color: #454545;
+}
