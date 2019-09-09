@@ -34,13 +34,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor='let std of students'>
-                                        <th>{{std.LastName}}</th>
+                                    <tr *ngFor="let std of students | paginate: { itemsPerPage: 3, currentPage: p }">
+                                        <td>{{std.LastName}}</td>
                                         <td>{{std.FirstMidName}}</td>
                                         <td>{{std.EnrollmentDate}}</td>
                                         <td class="action">
                                             <a class="fas fa-info-circle" [routerLink]="['/sinhvien',std.ID]"></a>
-                                            <a class="fas fa-trash-alt" href="#" (click)='DeleteStd(std.ID)'></a>
+                                            <a class="fas fa-trash-alt" [routerLink]="['']" (click)='DeleteStd(std.ID,std.LastName)'></a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -48,28 +48,14 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <p>Showing 1 of 3</p>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12"></div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
+                        <div class="col-lg-4 col-md-6 col-sm-12"></div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="text-right">
+                                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                            </div>
                         </div>
                     </div>
                 </div>

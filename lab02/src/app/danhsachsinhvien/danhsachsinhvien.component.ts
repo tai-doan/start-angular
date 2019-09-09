@@ -44,33 +44,30 @@ export class DanhsachsinhvienComponent implements OnInit {
     {"StudentID":6, "CourseID":3141, "Grade":'A'},
   ];
   
-  student: any;
-  id;
   pageTitle='';
+  p=1;
   constructor(private route: ActivatedRoute, private cart: CartServiceService) { }
   
   
   ngOnInit() {
-    this.route.paramMap.subscribe(
-      params =>{
-        this.id = +params.get('studentID');
-      }
-    );
-    this.student= this.students.find(p =>p.ID===this.id);
   }
-  DeleteStd(id){
-    // Delete data from student JSON
-    for(var i=0; i<this.students.length; i++){
-      if(this.students[i].ID===id){
-        return this.students.splice(i,1);
+  DeleteStd(id,name){
+    var txt="Bạn có chắn chắn xóa sinh viên "+name+" ?";
+    var r = confirm(txt);
+    if(r==true){
+      console.log("Đã xóa sinh viên "+name);
+      // Delete data from student JSON
+      for(var i=0; i<this.students.length; i++){
+        if(this.students[i].ID===id){
+          return this.students.splice(i,1);
+        }
+      }
+      // Delete data from enrollments JSON
+      for(var i=0; i<this.enrollments.length; i++){
+        if(this.enrollments[i].StudentID===id){
+          return this.enrollments.splice(i,1);
+        }
       }
     }
-    // Delete data from enrollments JSON
-    for(var i=0; i<this.enrollments.length; i++){
-      if(this.enrollments[i].StudentID===id){
-        return this.enrollments.splice(i,1);
-      }
-    }
-
   }
 }

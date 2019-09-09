@@ -9,3 +9,11 @@ td.action a:hover {
 td.action a.fas.fa-trash-alt {
     color: #454545;
 }
+
+table.table.table-bordered {
+    margin: 20px 0;
+}
+
+.container {
+    margin-top: 40px;
+}
