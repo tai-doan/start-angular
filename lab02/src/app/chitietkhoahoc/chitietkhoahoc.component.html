@@ -33,10 +33,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let course of course; let j=index">
-                                        <td>{{course.Title}}</td>
-                                        <td>{{enrollment[j].Grade}}</td>
-                                        <td>{{course.Credits}}</td>
+                                    <tr *ngFor="let data of tam">
+                                        <td>{{data.Title}}</td>
+                                        <td>{{data.Grade}}</td>
+                                        <td>{{data.Credit}}</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -1,0 +1,21 @@
+.card.product-card {
+    margin: 20px 0;
+}
+
+.row.product-area,
+.row.rightbar {
+    margin-top: 30px;
+}
+
+.product-price {
+    color: red;
+}
+
+a.card-title {
+    font-size: 1.3em;
+    text-decoration: none;
+}
+
+img.card-img-top.img-product {
+    padding: 12px;
+}

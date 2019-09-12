@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row product-single-page">
+        <div class="col-lg-5 col-md-6 col-sm-12">
+            <img class="product-image" src="/assets/images/{{sp.image}}" alt="{{sp.image}}">
+        </div>
+        <div class="col-lg-7 col-md-6 col-sm-12">
+            <h1 style="font-size: 23px;">{{sp.title}}</h1>
+            <h5 style="color: #ff5622;">${{sp.price}}</h5>
+            <p>
+                <b>Description:</b>
+                <span> {{sp.describe}}</span>
+            </p>
+            <p>
+                <b>Nhà cung cấp:</b>
+                <span> {{sp.supplier}}</span>
+            </p>
+            <p>
+                <b>Hiện còn:</b>
+                <span> {{sp.quantity}}</span>
+            </p>
+            <a (click)='addToCart(product)' class="btn btn-primary" [routerLink]="['/gio-hang']">Add to cart</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row product-area">
+        <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let item of sanpham">
+            <div class="card product-card" style="width: 100%;">
+                <img src="/assets/images/{{item.image}}" class="card-img-top img-product" alt="{{item.image}}">
+                <div class="card-body text-center">
+                    <a [routerLink]="['/san-pham',item.id]" class="card-title">{{item.title}}</a>
+                    <p class="card-text product-price"><b>${{item.price}}</b></p>
+                    <a [routerLink]="['/san-pham',item.id]" routerLinkActive="router-link-active" class="btn btn-primary">Mua ngay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

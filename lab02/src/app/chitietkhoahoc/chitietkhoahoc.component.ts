@@ -47,8 +47,7 @@ export class ChitietkhoahocComponent implements OnInit {
   
   student: any;
   idstd;
-  course= [];
-  enrollment= [];
+  tam=[];
   pageTitle='';
   constructor(private route: ActivatedRoute, private cart: CartServiceService) { }
 
@@ -59,21 +58,15 @@ export class ChitietkhoahocComponent implements OnInit {
       }
     );
     this.student= this.students.find(p =>p.ID===this.idstd);
-
-    // Get CourseID & Grade of enrollments JSON
+    
+    // Push data (Title, Grade, Credit) to tam Object
     for(var i=0; i<this.enrollments.length; i++){
-      if(this.enrollments[i].StudentID=== this.idstd){
-        this.enrollment.push(this.enrollments[i]);
-      }
-    }
-
-    // Get Course Title & Credit of courses JSON
-    for(var i=0; i<this.enrollment.length; i++){
       for(var j=0; j<this.courses.length; j++){
-        if(this.enrollment[i].CourseID===this.courses[j].CourseID){
-          this.course.push(this.courses[j]);
+        if(this.enrollments[i].StudentID===this.idstd && this.enrollments[i].CourseID==this.courses[j].CourseID){
+          this.tam.push({'Grade':this.enrollments[i].Grade,'Title':this.courses[j].Title,'Credit':this.courses[j].Credits});
         }
       }
     }
+    console.log(this.tam);
   }
 }
