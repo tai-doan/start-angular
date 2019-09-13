@@ -11,6 +11,20 @@ export class DetailtechproductComponent implements OnInit {
   addToCart(product) {
     this.cart.addToCart(product);
   }
+  // hàm lọc sản phẩm bị trùng
+  getUnique(arr, comp) {
+
+    const unique = arr
+      .map(e => e[comp])
+  
+       // store the keys of the unique objects
+      .map((e, i, final) => final.indexOf(e) === i && i)
+  
+      // eliminate the dead keys & store unique objects
+      .filter(e => arr[e]).map(e => arr[e]);
+     return unique;
+  }
+
   pageTitle='';
   product =[
     {
@@ -105,14 +119,13 @@ tam=[
       }
     );
     this.sp= this.product.find(p =>p.id===this.idsp);
-    // sản phẩm liên quan
+    // thêm tất id category có chứa sản phẩm vào json idcat
     for(var i=0; i<this.tam.length; i++){
       if(this.tam[i].productID==this.idsp){
         this.idcat.push(this.tam[i]);
       }
     }
-    console.log("Danh sách danh mục có chứa sản phẩm này");
-    console.log(this.idcat);
+    // thêm những sản phẩm có trong tất cả danh mục
     for(var k=0; k<this.idcat.length; k++){
       for(var i=0; i<this.tam.length; i++){
         if(this.idcat[k].CateID==this.tam[i].CateID){
@@ -124,17 +137,14 @@ tam=[
         }
       }
     }
-    console.log("Danh sách sản phẩm có trong tất cả danh mục");
-    console.log(this.sanpham);
-    // lọc sản phẩm trùng
-    // for(var i=0; i<this.sanpham.length; i++){
-    //   for(var j=this.sanpham.length-1; j>=0; j--){
-    //     if(this.sanpham[i].id===this.sanpham[j].id){
-    //       this.sanpham.splice(i,1);
-    //     }
-    //   }
-    // }
-    console.log("danh sách sản phẩm đã lọc");
-    console.log(this.sanpham);
+    // trả về json sản phẩm đã lọc trùng lặp sản phẩm
+    this.sanpham=this.getUnique(this.sanpham,'id');
+    // lọc sản phẩm trong sản phẩm liên quan là sản phẩm đang hiển thị
+    for(var i=0; i<this.sanpham.length; i++){
+      if(this.sanpham[i].id==this.idsp){
+        return this.sanpham.splice(i,1);
+      }
+    }
   }
+  
 }

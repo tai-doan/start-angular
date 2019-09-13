@@ -46,7 +46,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="card" style="width: 18rem;">
                                 <div class="card-header">
-                                    <i class="fas fa-list-alt"></i> Chủng loại
+                                    <a routerLink="['']" (click)="setidcat()"><i class="fas fa-list-alt"></i> Chủng loại</a>
                                 </div>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item" *ngFor="let cat of category"><a href="#" (click)=[getidcat(cat.id)]> {{cat.name}}</a></li>

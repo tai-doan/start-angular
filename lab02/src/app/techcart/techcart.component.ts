@@ -9,7 +9,7 @@ import { CartServiceService } from '../cart-service.service';
 })
 export class TechcartComponent implements OnInit {
   items;
-  constructor(private cartService: CartServiceService) { }
+  constructor(private cartService: CartServiceService, private router: ActivatedRoute) { }
 
   ngOnInit() {
     this.items = this.cartService.getItems();

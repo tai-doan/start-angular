@@ -1,5 +1,5 @@
 .card.product-card {
-    margin: 20px 0;
+    margin-bottom: 20px;
 }
 
 .row.product-area,
@@ -18,4 +18,13 @@ a.card-title {
 
 img.card-img-top.img-product {
     padding: 12px;
+}
+
+.rb a,
+.rb a:hover {
+    text-decoration: none;
+}
+
+.rb {
+    margin: 20px 0;
 }

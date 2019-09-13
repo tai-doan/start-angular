@@ -106,4 +106,7 @@ export class TechproductComponent implements OnInit {
     }
     return this.sp;
   }
+  setidcat(){
+    this.idcat=0;
+  }
 }

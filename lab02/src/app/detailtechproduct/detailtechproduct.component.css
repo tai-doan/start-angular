@@ -6,3 +6,11 @@ img.product-image {
 div.product-single-page {
     margin: 30px 0;
 }
+
+img.card-img-top.img-product {
+    margin: 20px 0;
+}
+
+.card.product-card {
+    margin-top: 15px;
+}
