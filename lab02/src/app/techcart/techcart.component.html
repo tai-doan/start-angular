@@ -19,10 +19,10 @@
                     <tbody>
                         <tr *ngFor="let item of items">
                             <td>
-                                <img class="img-fluid" src="assets/images/{{item.imageUrl}}" alt="{{item.imageUrl}}" width="35px" height="35px">
+                                <img class="img-fluid" src="assets/images/{{item.image}}" alt="{{item.image}}" width="35px" height="35px">
                             </td>
                             <td>
-                                <a [routerLink]="['/product',item.id]">{{item.title}}</a>
+                                <a [routerLink]="['/san-pham',item.id]">{{item.title}}</a>
                             </td>
                             <td>${{item.price}}</td>
                             <td>

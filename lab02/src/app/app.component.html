@@ -10,10 +10,16 @@
                 <a class="nav-link" [routerLink]="['']">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/sinhvien']">Sinh viên</a>
+                <a class="nav-link" target="_blank" href="http://lab01.trinhatweb.com/">Lab01</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/san-pham']">Sản phẩm</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Lab02
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/sinhvien']">Sinh viên</a>
+                    <a class="dropdown-item" [routerLink]="['/san-pham']">Web công nghệ</a>
+                </div>
             </li>
         </ul>
     </div>

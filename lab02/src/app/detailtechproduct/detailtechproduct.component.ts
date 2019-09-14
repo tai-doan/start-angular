@@ -34,7 +34,7 @@ export class DetailtechproductComponent implements OnInit {
       "price":"195",
       "supplier":"Nokia Computer",
       "describe":"Sản phẩm độc quyền từ nokia",
-      "quantity":"5"
+      "quantity":"1"
     },
     {
       "id":2,
@@ -43,7 +43,7 @@ export class DetailtechproductComponent implements OnInit {
       "price":"125",
       "supplier":"Samsung Computer",
       "describe":"Sản phẩm độc quyền từ Samsung",
-      "quantity":"6"
+      "quantity":"1"
     },
     {
       "id":3,
@@ -52,7 +52,7 @@ export class DetailtechproductComponent implements OnInit {
       "price":"150",
       "supplier":"Google Computer",
       "describe":"Sản phẩm độc quyền từ Google",
-      "quantity":"9"
+      "quantity":"1"
     },
     {
       "id":4,
@@ -61,7 +61,7 @@ export class DetailtechproductComponent implements OnInit {
       "price":"156",
       "supplier":"Apple Computer",
       "describe":"Sản phẩm độc quyền từ Apple",
-      "quantity":"55"
+      "quantity":"1"
     },
     {
       "id":5,
@@ -70,7 +70,7 @@ export class DetailtechproductComponent implements OnInit {
       "price":"175",
       "supplier":"Asus Computer",
       "describe":"Sản phẩm độc quyền từ Asus",
-      "quantity":"59"
+      "quantity":"1"
     },
     {
       "id":6,
@@ -79,7 +79,7 @@ export class DetailtechproductComponent implements OnInit {
       "price":"150",
       "supplier":"Xiaomi Computer",
       "describe":"Sản phẩm độc quyền từ Xiami",
-      "quantity":"50"
+      "quantity":"1"
     }
 ] 
 category=[

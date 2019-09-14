@@ -9,7 +9,7 @@ export class CartServiceService {
   addToCart(product) {
     if(this.items.length>0){
       for(var i=0; i<this.items.length; i++){
-          if(this.items[i].productId===product.productId){
+          if(this.items[i].id===product.id){
             this.slsp++;
             this.items[i].quantity++;
           }
@@ -35,7 +35,7 @@ export class CartServiceService {
 
   DeleteItem(id){
     for(let i=0; i< this.items.length; i++){
-      if(this.items[i].productId===id){
+      if(this.items[i].id===id){
         return this.items.splice(i,1);
       }
     }

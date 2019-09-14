@@ -23,14 +23,14 @@ export class TechcartComponent implements OnInit {
   }
   tangsl(id){
     for(let i=0; i< this.items.length; i++){ 
-      if(this.items[i].productId==id){       
+      if(this.items[i].id==id){       
         this.items[i].quantity++;
       }
     }
   }
   giamsl(id){
     for(let i=0; i< this.items.length; i++){
-      if(this.items[i].productId==id && this.items[i].quantity > 0){
+      if(this.items[i].id==id && this.items[i].quantity > 0){
         this.items[i].quantity--;
       }
     }

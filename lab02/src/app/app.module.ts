@@ -31,9 +31,9 @@ import { TechcartComponent } from './techcart/techcart.component';
       { path: '', component: TechproductComponent }, 
       { path: 'sinhvien', component: DanhsachsinhvienComponent},
       { path: 'sinhvien/:ID', component: ChitietkhoahocComponent },
-      { path: 'san-pham/', component: TechproductComponent },
+      { path: 'san-pham', component: TechproductComponent },
       { path: 'san-pham/:ID', component: DetailtechproductComponent },
-      { path: 'gio-hang/', component: TechcartComponent },
+      { path: 'gio-hang', component: TechcartComponent },
       { path: '**', redirectTo: '', pathMatch: 'full' },
     ]),
     BrowserAnimationsModule 

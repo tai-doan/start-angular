@@ -1,3 +1,7 @@
 .row.rb {
     margin: 20px 0;
 }
+
+a.view-cart {
+    text-decoration: none;
+}
