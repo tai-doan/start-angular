@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+            <h1>Danh sách</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    Danh sách hàng hóa
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col" (click)="filter('name')">
+                                    Sản phẩm
+                                    <span *ngIf="reverse; else elseBlock"><span id="sort-icon name"><i class="fas fa-sort-down"></i></span></span>
+                                    <ng-template #elseBlock><span id="sort-icon name"><i class="fas fa-sort-up"></i></span></ng-template>
+                                </th>
+                                <th scope="col" (click)="filter('price')">
+                                    Đơn giá
+                                    <span *ngIf="reverse; else elseBlock"><span id="sort-icon price"><i class="fas fa-sort-down"></i></span></span>
+                                    <ng-template #elseBlock><span id="sort-icon price"><i class="fas fa-sort-up"></i></span></ng-template>
+                                </th>
+                                <th scope="col" (click)="filter('discount')">
+                                    Giảm giá
+                                    <span *ngIf="reverse; else elseBlock"><span id="sort-icon discount"><i class="fas fa-sort-down"></i></span></span>
+                                    <ng-template #elseBlock><span id="sort-icon discount"><i class="fas fa-sort-up"></i></span></ng-template>
+                                </th>
+                                <th scope="col" (click)="filter('date')">
+                                    Ngày
+                                    <span *ngIf="reverse; else elseBlock"><span id="sort-icon date"><i class="fas fa-sort-down"></i></span></span>
+                                    <ng-template #elseBlock><span id="sort-icon date"><i class="fas fa-sort-up"></i></span></ng-template>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of list | orderBy: soft : reverse | paginate: { itemsPerPage: r, currentPage: p }">
+                                <td class="nameofproduct"> {{item.name}}</td>
+                                <td> ${{item.price | number:'0.2'}} </td>
+                                <td> {{item.discount | number:'0.2'}}%</td>
+                                <td> {{item.date | date:'mediumDate' }} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer text-center">
+                    <i class="far fa-hand-point-up" (click)="first()"></i>
+                    <i class="far fa-hand-point-left" (click)="prev()"></i>
+                    <i class="far fa-hand-point-right" (click)="next()"></i>
+                    <i class="far fa-hand-point-down" (click)="end()"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
