@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="card mx-auto">
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label>Chiều dài</label>
+                            <input [(ngModel)]="HCN.cd" [ngModelOptions]="{standalone: true}" type="number" required class="form-control" placeholder="Nhập chiều dài">
+                        </div>
+                        <div class="form-group">
+                            <label>Chiều rộng</label>
+                            <input [(ngModel)]="HCN.cr" [ngModelOptions]="{standalone: true}" type="number" required class="form-control" placeholder="Nhập chiều rộng">
+                        </div>
+                        <div class="form-group">
+                            <label>Chu vi</label>
+                            <input [(ngModel)]="HCN.cv" [ngModelOptions]="{standalone: true}" type="number" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Diện tích</label>
+                            <input [(ngModel)]="HCN.dt" [ngModelOptions]="{standalone: true}" type="number" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary" (click)="calculator()">Calculator</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="card mx-auto">
+                <div class="card-header text-center">
+                    <h4>Tính lương thưởng Tết Nguyên Đán</h4>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label>Họ và tên</label>
+                            <input required [(ngModel)]="tongtienthuong.hovaten" [ngModelOptions]="{standalone: true}" type="text" required class="form-control" placeholder="Nhập họ và tên">
+                        </div>
+                        <div class="form-group">
+                            <label>Lương</label>
+                            <input required min="2000000" [(ngModel)]="tongtienthuong.luong" [ngModelOptions]="{standalone: true}" type="number" required class="form-control" placeholder="Nhập tiền lương">
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input [(ngModel)]="tongtienthuong.gender" class="form-check-input" type="radio" value="nam" [ngModelOptions]="{standalone: true}">
+                            <label class="form-check-label">Nam</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input [(ngModel)]="tongtienthuong.gender" [ngModelOptions]="{standalone: true}" class="form-check-input" type="radio" value="nu">
+                            <label class="form-check-label">Nữ</label>
+                        </div>
+                        <div class="form-group">
+                            <label>Độ tuổi</label>
+                            <select class="form-control" [(ngModel)]="tongtienthuong.tuoi" [ngModelOptions]="{standalone: true}">
+                                <option *ngFor="let item of list" value="{{item.rate}}">{{item.age}}</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" (click)="tinhtien()">Tính tiền</button>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <h4>Tiền thưởng: {{tienthuong | number}}VNĐ </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Bán hàng giải khát</h3>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Tên hàng</th>
+                                    <th scope="col">Số lượng</th>
+                                    <th scope="col">Đơn giá</th>
+                                    <th scope="col">Thành tiền</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of items">
+                                    <th>
+                                        <div class="form-check">
+                                            <input [(ngModel)]="item.confirm" [ngModelOptions]="{standalone: true}" class="form-check-input" type="checkbox">
+                                        </div>
+                                    </th>
+                                    <th>{{item.name}}</th>
+                                    <td>
+                                        <input [disabled]="!item.confirm" [(ngModel)]="item.quantity" [ngModelOptions]="{standalone: true}" type="number" class="form-control" placeholder="Số lượng">
+                                    </td>
+                                    <td>${{item.price | number:'0.2'}}</td>
+                                    <td>${{ tien(item.confirm, item.price, item.quantity) | number:'0.2' }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <h3>Tổng tiền: ${{tongtien() | number: '0.2'}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
