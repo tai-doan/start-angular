@@ -1,0 +1,30 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" routerLink="['films']">Films</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="['films']">Film <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="['films']">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="row">
+        <div *ngFor="let item of listfilm" class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card">
+                <img src="/assets/images/titanic.jpg" class="card-img-top" alt="Images fimls">
+                <div class="card-body">
+                    <a [routerLink]="['/films', item.url]" routerLinkActive="router-link-active" class="card-title">{{item.title}}</a>
+                    <p class="card-text">Producer {{item.producer}}</p>
+                    <p class="card-text">Release Date: {{item.release_date}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, Validator } from '@angular/forms'
+import { FormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { DanhsachsinhvienComponent } from './danhsachsinhvien/danhsachsinhvien.component';
@@ -16,6 +17,8 @@ import { TechcartComponent } from './techcart/techcart.component';
 import { HCNComponent } from './hcn/hcn.component';
 import { SinhvienComponent } from './sinhvien/sinhvien.component';
 import { ChitietsinhvienComponent } from './chitietsinhvien/chitietsinhvien.component';
+import { FilmsComponent } from './films/films.component';
+import { FilmsdetailComponent } from './filmsdetail/filmsdetail.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,12 @@ import { ChitietsinhvienComponent } from './chitietsinhvien/chitietsinhvien.comp
     TechcartComponent,
     HCNComponent,
     SinhvienComponent,
-    ChitietsinhvienComponent
+    ChitietsinhvienComponent,
+    FilmsComponent,
+    FilmsdetailComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     NgxPaginationModule,
@@ -44,6 +50,8 @@ import { ChitietsinhvienComponent } from './chitietsinhvien/chitietsinhvien.comp
       { path: 'san-pham', component: TechproductComponent },
       { path: 'san-pham/:ID', component: DetailtechproductComponent },
       { path: 'gio-hang', component: TechcartComponent },
+      { path: 'films', component: FilmsComponent },
+      { path: 'films/:ID', component: FilmsdetailComponent },
       { path: '**', redirectTo: '', pathMatch: 'full' },
     ]),
     BrowserAnimationsModule 
