@@ -1,0 +1,19 @@
+<div *ngIf="products">
+    <h3 class="title">{{products.productname}}</h3>
+    <div class="image-product">
+        <img src="./assets/data_guitar/guitar.jpg" alt="Image product">
+    </div>
+    <div class="content-product">
+        <p class="price"><b>Price </b> <span style="font-size: 20px; color: #ff7804;">${{products.price | number}}</span></p>
+        <p><b>Description</b></p>
+        <p>{{products.description}}</p>
+        <p><b>New features</b></p>
+        <ul class="newfeature">
+            <li *ngFor="let nf of products.newfeature">{{nf.text}}</li>
+        </ul>
+        <button type="button" (click)='giamsl()' class="btn btn-danger btn-sm">-</button>
+        <span class="quantity" width="18px">{{products.quantity}}</span>
+        <button type="button" (click)='tangsl()' class="btn btn-success btn-sm">+</button>
+        <button class="btn muangay btn-warning" (click)="muangay(products)" [routerLink]="['/giohang']" routerLinkActive="router-link-active">Mua ngay</button>
+    </div>
+</div>

@@ -1,0 +1,110 @@
+<div class="row" *ngIf="!kt">
+    <div *ngIf="!hiddenbilling" class="col-lg-12 col-md-12 col-sm-12">
+        <h3>Add your billing address</h3>
+    </div>
+    <div *ngIf="!hiddenbilling" class="col-lg-12 col-md-12 col-sm-12">
+        <div>
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Name</label>
+                        <input [(ngModel)]="billing.name" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="name" placeholder="Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="address">Address</label>
+                        <input [(ngModel)]="billing.address" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="address" placeholder="Address">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="email">Email</label>
+                        <input [(ngModel)]="billing.email" [ngModelOptions]="{standalone: true}" type="email" class="form-control" id="email" placeholder="Email">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="phone">Phone</label>
+                        <input [(ngModel)]="billing.phone" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="phone" placeholder="Phone">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" (click)="savebilling()">Save</button>
+            </form>
+        </div>
+    </div>
+    <div *ngIf="hiddenbilling" class="col-lg-12 col-md-12 col-sm-12">
+        <h3>Add your shipping address</h3>
+    </div>
+    <div *ngIf="hiddenbilling" class="col-lg-12 col-md-12 col-sm-12">
+        <div>
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputName">Name</label>
+                        <input [(ngModel)]="shipping.name" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputName" placeholder="Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputAddress">Address</label>
+                        <input [(ngModel)]="shipping.address" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputAddress" placeholder="Address">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Email</label>
+                        <input [(ngModel)]="shipping.email" [ngModelOptions]="{standalone: true}" type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPhone">Phone</label>
+                        <input [(ngModel)]="shipping.phone" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputPhone" placeholder="Phone">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" (click)="saveshipping()">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div *ngIf="kt" class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <h4>Your order</h4>
+        <p>Order number: {{numberoforder |number:0}}</p>
+        <p>Order Date: {{date | date:'dd/MM/yyyy'}}</p>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <h4>Your shipping</h4>
+        <p>Name: {{shipping.name}}</p>
+        <p>Address: {{shipping.address}}</p>
+        <p>Email: {{shipping.email}}</p>
+        <p>Phone: {{shipping.phone}}</p>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <h4>Your billing</h4>
+        <p>Name: {{shipping.name}}</p>
+        <p>Address: {{shipping.address}}</p>
+        <p>Email: {{shipping.email}}</p>
+        <p>Phone: {{shipping.phone}}</p>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <h4>Order items</h4>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Line Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of product">
+                    <td>{{item.productname}}</td>
+                    <td>${{item.price | number}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>${{item.price*item.quantity | number}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3">Subtotal</td>
+                    <td><b>${{tongtien()|number}}</b></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

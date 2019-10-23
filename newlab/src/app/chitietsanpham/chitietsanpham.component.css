@@ -1,0 +1,27 @@
+h3.title {
+    color: #ff7804;
+}
+
+div.image-product img {
+    width: 30%;
+    height: auto;
+    float: left;
+}
+
+div.content-product {
+    width: 70%;
+    float: right;
+}
+
+ul.newfeature {
+    border: 1px dashed #ff7804;
+    border-radius: 5px;
+}
+
+span.quantity {
+    padding: 0 12px;
+}
+
+.muangay {
+    margin-left: 15px;
+}
